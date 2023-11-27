@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/style.css"/>
+    <title>CV</title>
+</head>
+<body>
+    <header>
+        <img src="avatar.png" alt="Avatar" height="70" width="70"/>
+        <h1>John Doe</h1>
+        <hr/>
+    </header>
+    <main>
+        <section>
+            <h2>Contacts</h2>
+            <nav>
+                <ul>
+                    <li><strong>Phone: </strong><a href="tel:+38095123456">+38095123456</a></li>
+                    <li><strong>E-mail: </strong> <a href="mailto:john.doe@gmail.com">john.doe@gmail.com</a></li>
+                    <li><strong>LinkedIn: </strong> <a href="https://www.linkedin.com/in/john-doe/">john-doe</a></li>
+                    <li><strong>GitHub: </strong> <a href="https://github.com/johndoe">johndoe</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <section>
+            <h2>Summary</h2>
+            <p>
+                Aspiring Junior Frontend Developer with a relentless passion for crafting seamless and visually appealing user experiences.
+                Eager to contribute to dynamic projects and leverage my ability to learn quickly, turning challenges into opportunities for growth.
+                Recognize that being a Junior Developer entails continuous learning from diverse sources, and I am committed to staying abreast of the latest technologies
+                and best practices. Seeking a collaborative environment where I can make meaningful contributions while further honing my skills.
+            </p>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <ul>
+                <li>Programming Languages: HTML, CSS, JavaScript</li>
+                <li>Frontend Frameworks: React.js, Vue.js</li>
+                <li>Version Control: Git</li>
+                <li>Tools: VS Code, npm</li>
+                <li>Methodologies: Responsive Design, Agile</li>
+                <li>Basic understanding of backend technologies</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Code Examples</h2>
+                <pre>
+                    <code>
+import React, {FC, useMemo} from 'react';
+import {IFieldCategory} from "../../../../../types";
+import {Table} from "../";
+
+type Props = {
+    isDescShown: boolean,
+    fieldsList: Array<IFieldCategory>
+}
+
+const List: FC<Props> = ({isDescShown, fieldsList}) => {
+
+    const fieldsListFiltered = useMemo<Array<IFieldCategory>>(() => {
+        return fieldsList.reduce((acc: Array<IFieldCategory>, field: IFieldCategory) => {
+            const availableFields = field.fields.filter(item => !item.show_if_true || (item.show_if_true && item.value));
+            return (availableFields.length === 0) ? acc : [...acc, {...field, fields: availableFields}];
+        }, []);
+
+    }, [fieldsList]);
+
+    return (
+        <Data fieldsList={fieldsListFiltered} isDescShown={isDescShown}/>
+    );
+};
+
+export default List;
+                    </code>
+                </pre>
+        </section>
+
+        <section>
+            <h2>Project examples</h2>
+            <a href="https://votalifda.github.io/rsschool-cv/">https://votalifda.github.io/rsschool-cv/</a>
+        </section>
+
+        <section>
+            <h2>Experience</h2>
+            <ul>
+                <li>
+                    <h3>Freelance Web Developer | Self-Employed</h3>
+                    <p>Completed various small-scale projects for local businesses, demonstrating proficiency in frontend technologies</p>
+                </li>
+                <li>
+                    <h3>Coding Challenges | HackerRank, LeetCode</h3>
+                    <p>Regularly engage in coding challenges to enhance problem-solving skills and algorithmic thinking.</p>
+                </li>
+            </ul>
+        </section>
+
+
+        <section>
+            <h2>Education</h2>
+            <ul>
+                <li>
+                    <h3>Bachelor of Science in Computer Science</h3>
+                    <p>XYZ University, Graduation: May 2022</p>
+                </li>
+                <li>
+                    <h3>Online Courses</h3>
+                    <nav>
+                        <ul>
+                            <li><a href="https://www.udemy.com/">Modern Web Development" - Udemy</a></li>
+                            <li><a href="https://www.codecademy.com/">React.js Fundamentals" - Codecademy</a></li>
+                            <li><a href="https://www.freecodecamp.org/">Responsive Web Design" - freeCodeCamp</a></li>
+                        </ul>
+                    </nav>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>English level</h2>
+            <p>
+                Fluent in English with practical experience gained through participation in English-speaking coding communities, online courses,
+                and collaboration on international open-source projects. Regularly engage in English coding forums and discussions to enhance communication skills.
+            </p>
+        </section>
+
+    </main>
+    <footer>
+        <a href="https://rs.school/">
+            <img src="rs_school.svg" alt="RSSchool" height="40"/>
+        </a>
+
+        <a href="https://github.com/Votalifda">https://github.com/Votalifda</a>
+
+        <p>November, 2023</p>
+
+    </footer>
+</body>
+</html>
