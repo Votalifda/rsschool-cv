@@ -2,17 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/style.css"/>
+    <link rel="stylesheet" href="style.css">
     <title>CV</title>
 </head>
 <body>
     <header>
-        <img src="avatar.png" alt="Avatar" height="70" width="70"/>
+        <img src="avatar.png" alt="Avatar" height="70" width="70">
         <h1>John Doe</h1>
-        <hr/>
+        <hr>
     </header>
     <main>
         <section>
@@ -26,7 +24,6 @@
                 </ul>
             </nav>
         </section>
-
         <section>
             <h2>Summary</h2>
             <p>
@@ -36,7 +33,6 @@
                 and best practices. Seeking a collaborative environment where I can make meaningful contributions while further honing my skills.
             </p>
         </section>
-
         <section>
             <h2>Skills</h2>
             <ul>
@@ -48,45 +44,38 @@
                 <li>Basic understanding of backend technologies</li>
             </ul>
         </section>
-
         <section>
             <h2>Code Examples</h2>
-                <pre>
-                    <code>
-import React, {FC, useMemo} from 'react';
-import {IFieldCategory} from "../../../../../types";
-import {Table} from "../";
+        <pre>
+            <code>
+import React, {'{ FC, useMemo }'} from 'react';
+import {'{ IFieldCategory }'} from "../../../../../types";
+import {'{ Table }'} from "../";
 
 type Props = {
-    isDescShown: boolean,
-    fieldsList: Array<IFieldCategory>
-}
+    isDescShown: boolean;
+    fieldsList: Array;
+};
 
-const List: FC<Props> = ({isDescShown, fieldsList}) => {
-
-    const fieldsListFiltered = useMemo<Array<IFieldCategory>>(() => {
-        return fieldsList.reduce((acc: Array<IFieldCategory>, field: IFieldCategory) => {
+const List: FC = ({ isDescShown, fieldsList }) => {
+    const fieldsListFiltered = useMemo(() => {
+        return fieldsList.reduce((acc, field: IFieldCategory) => {
             const availableFields = field.fields.filter(item => !item.show_if_true || (item.show_if_true && item.value));
-            return (availableFields.length === 0) ? acc : [...acc, {...field, fields: availableFields}];
+            return availableFields.length === 0 ? acc : [...acc, { ...field, fields: availableFields }];
         }, []);
-
     }, [fieldsList]);
 
-    return (
-        <Data fieldsList={fieldsListFiltered} isDescShown={isDescShown}/>
-    );
+    return &lt;Data fieldsList={fieldsListFiltered} isDescShown={isDescShown} /&gt;
 };
 
 export default List;
-                    </code>
-                </pre>
+            </code>
+        </pre>
         </section>
-
         <section>
             <h2>Project examples</h2>
             <a href="https://votalifda.github.io/rsschool-cv/">https://votalifda.github.io/rsschool-cv/</a>
         </section>
-
         <section>
             <h2>Experience</h2>
             <ul>
@@ -100,8 +89,6 @@ export default List;
                 </li>
             </ul>
         </section>
-
-
         <section>
             <h2>Education</h2>
             <ul>
@@ -121,7 +108,6 @@ export default List;
                 </li>
             </ul>
         </section>
-
         <section>
             <h2>English level</h2>
             <p>
@@ -129,17 +115,13 @@ export default List;
                 and collaboration on international open-source projects. Regularly engage in English coding forums and discussions to enhance communication skills.
             </p>
         </section>
-
     </main>
     <footer>
         <a href="https://rs.school/">
-            <img src="rs_school.svg" alt="RSSchool" height="40"/>
+            <img src="rs_school.svg" alt="RSSchool" height="40">
         </a>
-
         <a href="https://github.com/Votalifda">https://github.com/Votalifda</a>
-
         <p>November, 2023</p>
-
     </footer>
 </body>
 </html>
